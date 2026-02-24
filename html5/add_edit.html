@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Admin Subiecte</title>
+</head>
+
+<body>
+
+<header>
+<h1>Administrare Subiecte</h1>
+</header>
+
+<nav>
+<a href="index.html">Home</a> |
+<a href="subiecte.html">Subiecte</a> |
+<a href="login.html">Login</a> |
+<a href="register.html">Register</a>
+</nav>
+
+<hr>
+
+<main>
+
+<section>
+<form action="#" method="post">
+
+<fieldset>
+<legend>Adaugă / Editează Subiect</legend>
+
+<p>
+<label for="titlu">Titlu:</label>
+<input type="text" id="titlu" name="titlu" required>
+</p>
+
+<p>
+<label for="an">An:</label>
+<input type="number" id="an" name="an" min="2000" max="2100" step="1">
+</p>
+
+<p>
+<label for="etapa">Etapă:</label>
+<select id="etapa" name="etapa">
+<option value="judeteana">Județeană</option>
+<option value="nationala">Națională</option>
+</select>
+</p>
+
+<p>
+Clasă:
+<input type="radio" name="clasa" value="9"> IX
+<input type="radio" name="clasa" value="10"> X
+<input type="radio" name="clasa" value="11"> XI
+<input type="radio" name="clasa" value="12"> XII
+</p>
+
+<p>
+<label for="descriere">Descriere:</label><br>
+<textarea id="descriere" name="descriere" rows="4" cols="40"></textarea>
+</p>
+
+<p>
+<input type="submit" value="Adaugă">
+<input type="submit" value="Editează">
+<input type="submit" value="Șterge" disabled>
+</p>
+
+</fieldset>
+
+</form>
+</section>
+
+</main>
+
+<footer>
+<p>&copy; 2026 OlimpiadaHub</p>
+</footer>
+
+</body>
+</html>
