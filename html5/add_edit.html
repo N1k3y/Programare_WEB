@@ -2,78 +2,76 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Subiecte</title>
 </head>
-
 <body>
 
 <header>
-<h1>Administrare Subiecte</h1>
+    <h1>Administrare Subiecte</h1>
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="subiecte.html">Subiecte</a> |
+        <a href="login.html">Login</a> |
+        <a href="register.html">Register</a> |
+        <a href="add_edit.html">Admin</a> |
+        <a href="https://www.w3schools.com" target="_blank" title="Tutoriale HTML">Resurse externe</a>
+    </nav>
 </header>
-
-<nav>
-<a href="index.html">Home</a> |
-<a href="subiecte.html">Subiecte</a> |
-<a href="login.html">Login</a> |
-<a href="register.html">Register</a>
-</nav>
 
 <hr>
 
 <main>
+    <section>
+        <form action="#" method="post">
+            <p>
+                <label for="titlu">Titlu:</label> <input type="text" id="titlu" name="titlu" required>
+            </p>
 
-<section>
-<form action="#" method="post">
+            <p>
+                <label for="an">An:</label> 
+                <input type="number" id="an" name="an" value="2024" min="1900" max="2100" step="1" required>
+            </p>
 
-<fieldset>
-<legend>Adaugă / Editează Subiect</legend>
+            <p>
+                <label for="etapa">Etapă:</label>
+                <select id="etapa" name="etapa">
+                    <option>Județeană</option>
+                    <option>Națională</option>
+                </select>
+            </p>
 
-<p>
-<label for="titlu">Titlu:</label>
-<input type="text" id="titlu" name="titlu" required>
-</p>
+            <p>
+                Clasă:
+                <label><input type="radio" name="clasa" value="9" required> IX</label>
+                <label><input type="radio" name="clasa" value="10"> X</label>
+                <label><input type="radio" name="clasa" value="11"> XI</label>
+                <label><input type="radio" name="clasa" value="12"> XII</label>
+            </p>
 
-<p>
-<label for="an">An:</label>
-<input type="number" id="an" name="an" min="2000" max="2100" step="1">
-</p>
+            <p>
+                <label for="desc_admin">Descriere amănunțită:</label><br>
+                <textarea id="desc_admin" name="desc_admin" rows="4" cols="40"></textarea>
+            </p>
 
-<p>
-<label for="etapa">Etapă:</label>
-<select id="etapa" name="etapa">
-<option value="judeteana">Județeană</option>
-<option value="nationala">Națională</option>
-</select>
-</p>
+            <p>
+                <label for="admin_log">Status Admin (Read-only):</label>
+                <input type="text" id="admin_log" name="admin_log" value="Sistem Activ" readonly>
+            </p>
 
-<p>
-Clasă:
-<input type="radio" name="clasa" value="9"> IX
-<input type="radio" name="clasa" value="10"> X
-<input type="radio" name="clasa" value="11"> XI
-<input type="radio" name="clasa" value="12"> XII
-</p>
-
-<p>
-<label for="descriere">Descriere:</label><br>
-<textarea id="descriere" name="descriere" rows="4" cols="40"></textarea>
-</p>
-
-<p>
-<input type="submit" value="Adaugă">
-<input type="submit" value="Editează">
-<input type="submit" value="Șterge" disabled>
-</p>
-
-</fieldset>
-
-</form>
-</section>
-
+            <p>
+                <input type="submit" value="Adaugă">
+                <input type="submit" value="Editează">
+                <input type="submit" value="Șterge" disabled>
+            </p>
+        </form>
+    </section>
 </main>
 
+<hr>
+
 <footer>
-<p>&copy; 2026 OlimpiadaHub</p>
+    <p>&copy; 2026 OlimpiadaHub</p>
 </footer>
 
 </body>

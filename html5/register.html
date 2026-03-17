@@ -2,133 +2,111 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Înregistrare</title>
 </head>
-
 <body>
 
 <header>
-<h1>Formular Înregistrare</h1>
+    <h1>Formular Înregistrare</h1>
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="subiecte.html">Subiecte</a> |
+        <a href="login.html">Login</a> |
+        <a href="register.html">Register</a> |
+        <a href="add_edit.html">Admin</a> |
+        <a href="https://www.w3schools.com" target="_blank" title="Tutoriale HTML">Resurse externe</a>
+    </nav>
 </header>
-
-<nav>
-<a href="index.html">Home</a> |
-<a href="subiecte.html">Subiecte</a> |
-<a href="login.html">Login</a>
-</nav>
 
 <hr>
 
 <main>
+    <section>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Date personale pentru învățământul românesc</legend>
 
-<section>
-<form action="#" method="post">
+                <p>
+                    <label for="nume">Nume:</label> <input type="text" id="nume" name="nume" required>
+                </p>
+                <p>
+                    <label for="prenume">Prenume:</label> <input type="text" id="prenume" name="prenume" required>
+                </p>
+                <p>
+                    <label for="email">Email:</label> <input type="email" id="email" name="email" required>
+                </p>
+                <p>
+                    <label for="parola">Parolă:</label> <input type="password" id="parola" name="parola" required>
+                </p>
+                <p>
+                    <label for="confirmare">Confirmare parolă:</label> <input type="password" id="confirmare" name="confirmare" required>
+                </p>
+                <p>
+                    <label for="scoala">Școală:</label> 
+                    <input type="text" id="scoala" name="scoala" list="schools">
+                    <datalist id="schools">
+                        <option value="Colegiul Național Emil Racoviță">
+                        <option value="Liceul Teoretic Avram Iancu">
+                        <option value="Colegiul Național Mihai Viteazul">
+                    </datalist>
+                </p>
+                <p>
+                    <label for="judet">Județ:</label>
+                    <select id="judet" name="judet">
+                        <option value="cluj" selected>Cluj</option>
+                        <option value="timis">Timiș</option>
+                        <option value="iasi">Iași</option>
+                    </select>
+                </p>
 
-<fieldset>
-<legend>Date personale</legend>
+                <p>
+                    Clasă:
+                    <label><input type="radio" name="clasa" value="9" required> IX</label>
+                    <label><input type="radio" name="clasa" value="10"> X</label>
+                    <label><input type="radio" name="clasa" value="11"> XI</label>
+                    <label><input type="radio" name="clasa" value="12"> XII</label>
+                </p>
 
-<p>
-<label for="nume">Nume:</label>
-<input type="text" id="nume" name="nume" required>
-</p>
+                <p>
+                    Arii:
+                    <label><input type="checkbox" name="arie1"> Algebră</label>
+                    <label><input type="checkbox" name="arie2"> Geometrie</label>
+                    <label><input type="checkbox" name="arie3"> Numere</label>
+                    <label><input type="checkbox" name="arie4"> Combinatorică</label>
+                </p>
 
-<p>
-<label for="prenume">Prenume:</label>
-<input type="text" id="prenume" name="prenume" required>
-</p>
+                <p>
+                    <label for="concursuri">Concursuri țintă:</label><br>
+                    <select id="concursuri" name="concursuri" multiple size="3">
+                        <option>Județeană</option>
+                        <option>Națională</option>
+                        <option>Balcaniadă</option>
+                    </select>
+                </p>
 
-<p>
-<label for="email">Email:</label>
-<input type="email" id="email" name="email" required>
-</p>
+                <p>
+                    <label for="descriere">Descriere obiective:</label><br>
+                    <textarea id="descriere" name="descriere" rows="4" cols="40"></textarea>
+                </p>
 
-<p>
-<label for="parola">Parolă:</label>
-<input type="password" id="parola" name="parola" required>
-</p>
+                <p>
+                    <label><input type="checkbox" name="regulament" required> Accept regulamentul</label>
+                </p>
 
-<p>
-<label for="confirmare">Confirmare parolă:</label>
-<input type="password" id="confirmare" name="confirmare" required>
-</p>
+                <p>
+                    <input type="submit" value="Înregistrare">
+                </p>
 
-<p>
-<label for="scoala">Școală:</label>
-<input type="text" id="scoala" name="scoala">
-</p>
-
-<p>
-<label for="judet">Județ:</label>
-<input list="judete" id="judet" name="judet">
-<datalist id="judete">
-<option value="Cluj">
-<option value="Timiș">
-<option value="Iași">
-</datalist>
-</p>
-
-<p>
-Clasă:
-<input type="radio" id="cl9" name="clasa" value="9">
-<label for="cl9">IX</label>
-
-<input type="radio" id="cl10" name="clasa" value="10">
-<label for="cl10">X</label>
-
-<input type="radio" id="cl11" name="clasa" value="11">
-<label for="cl11">XI</label>
-
-<input type="radio" id="cl12" name="clasa" value="12">
-<label for="cl12">XII</label>
-</p>
-
-<p>
-Arii:
-<input type="checkbox" id="alg" name="arie" value="algebra">
-<label for="alg">Algebră</label>
-
-<input type="checkbox" id="geo" name="arie" value="geometrie">
-<label for="geo">Geometrie</label>
-
-<input type="checkbox" id="num" name="arie" value="numere">
-<label for="num">Numere</label>
-
-<input type="checkbox" id="comb" name="arie" value="combinatorica">
-<label for="comb">Combinatorică</label>
-</p>
-
-<p>
-Concursuri țintă:
-<select name="concursuri" multiple>
-<option value="judeteana">Județeană</option>
-<option value="nationala">Națională</option>
-<option value="balcaniada">Balcaniadă</option>
-</select>
-</p>
-
-<p>
-<label for="descriere">Descriere obiective:</label><br>
-<textarea id="descriere" name="descriere" rows="4" cols="40"></textarea>
-</p>
-
-<p>
-<input type="checkbox" id="regulament" name="regulament" required>
-<label for="regulament">Accept regulamentul</label>
-</p>
-
-<p>
-<input type="submit" value="Înregistrare">
-</p>
-
-</fieldset>
-
-</form>
-</section>
-
+            </fieldset>
+        </form>
+    </section>
 </main>
 
+<hr>
+
 <footer>
-<p>&copy; 2026 OlimpiadaHub</p>
+    <p>&copy; 2026 OlimpiadaHub</p>
 </footer>
 
 </body>

@@ -2,95 +2,73 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subiecte</title>
 </head>
-
 <body>
 
 <header>
-<h1>Arhivă Subiecte</h1>
+    <h1>Arhivă Subiecte</h1>
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="subiecte.html">Subiecte</a> |
+        <a href="login.html">Login</a> |
+        <a href="register.html">Register</a> |
+        <a href="add_edit.html">Admin</a> |
+        <a href="https://www.w3schools.com" target="_blank" title="Tutoriale HTML">Resurse externe</a>
+    </nav>
 </header>
-
-<nav>
-<a href="index.html">Home</a> |
-<a href="login.html">Login</a> |
-<a href="register.html">Register</a> |
-<a href="add_edit.html">Admin</a>
-</nav>
 
 <hr>
 
 <main>
+    <article>
+        <section>
+            <table>
+                <tr>
+                    <th>An</th>
+                    <th>Etapă</th>
+                    <th>Clasă</th>
+                    <th>Detalii</th>
+                </tr>
 
-<section>
-<h2>Subiecte 2024</h2>
+                <tr>
+                    <td rowspan="2">2024</td>
+                    <td>Județeană</td>
+                    <td>XI</td>
+                    <td>
+                        <table>
+                            <tr><td>Problema 1</td><td>10p</td></tr>
+                            <tr><td>Problema 2</td><td>10p</td></tr>
+                            <tr><td>Problema 3</td><td>10p</td></tr>
+                        </table>
+                    </td>
+                </tr>
 
-<table>
-<thead>
-<tr>
-<th>An</th>
-<th>Etapă</th>
-<th>Clasă</th>
-<th>Detalii</th>
-</tr>
-</thead>
+                <tr>
+                    <td>Națională</td>
+                    <td>XII</td>
+                    <td>
+                        <table>
+                            <tr><td>Problema 1</td><td>7p</td></tr>
+                            <tr><td>Problema 2</td><td>7p</td></tr>
+                            <tr><td>Problema 3</td><td>7p</td></tr>
+                        </table>
+                    </td>
+                </tr>
 
-<tbody>
-
-<tr>
-<td rowspan="2">2024</td>
-<td>Județeană</td>
-<td>XI</td>
-<td>
-
-<article>
-<h3>Structură subiect</h3>
-<table>
-<tr><td>Problema 1</td><td>10p</td></tr>
-<tr><td>Problema 2</td><td>10p</td></tr>
-<tr><td>Problema 3</td><td>10p</td></tr>
-</table>
-</article>
-
-</td>
-</tr>
-
-<tr>
-<td>Națională</td>
-<td>XII</td>
-<td>
-
-<article>
-<h3>Structură subiect</h3>
-<table>
-<tr><td>Problema 1</td><td>7p</td></tr>
-<tr><td>Problema 2</td><td>7p</td></tr>
-<tr><td>Problema 3</td><td>7p</td></tr>
-</table>
-</article>
-
-</td>
-</tr>
-
-</tbody>
-</table>
-
-</section>
-
-<section>
-<h2>Detalii suplimentare</h2>
-
-<details>
-<summary>Vezi informații despre barem</summary>
-<p>Punctajul este distribuit egal între probleme.</p>
-</details>
-
-</section>
-
+                <tr>
+                    <td colspan="4"><strong>Sursa: Ministerul Educației</strong></td>
+                </tr>
+            </table>
+        </section>
+    </article>
 </main>
 
+<hr>
+
 <footer>
-<p>&copy; 2026 OlimpiadaHub</p>
+    <p>&copy; 2026 OlimpiadaHub</p>
 </footer>
 
 </body>
