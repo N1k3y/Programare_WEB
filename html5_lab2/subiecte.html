@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="subiecte.css">
+<title>Subiecte</title>
+</head>
+<body>
+
+<header>
+    <h1>Arhivă Subiecte</h1>
+    <div class="windows-menu-container">
+    <input type="checkbox" id="start-menu-toggle" class="css-checkbox">
+    <label for="start-menu-toggle" class="start-button">
+        <span class="icon">&#9883;</span> Start
+    </label>
+
+    <nav class="vertical-menu">
+        <ul class="menu-items">
+            <li><a href="index.html">Home</a></li>
+            
+            <li>
+                <input type="checkbox" id="submenu-toggle-1" class="css-checkbox">
+                <label for="submenu-toggle-1" class="menu-item-label">Subiecte &#9662;</label>
+                
+                <ul class="submenu">
+                    <li><a href="subiecte.html">Arhivă Subiecte</a></li>
+                    <li><a href="add_edit.html">Adaugă/Editează (Admin)</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="https://www.w3schools.com" target="_blank" title="Tutoriale HTML">Resurse externe</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+
+<hr>
+
+<main>
+    <article>
+        <section>
+            <table>
+                <tr>
+                    <th>An</th>
+                    <th>Etapă</th>
+                    <th>Clasă</th>
+                    <th>Detalii</th>
+                </tr>
+
+                <tr>
+                    <td rowspan="2">2024</td>
+                    <td>Județeană</td>
+                    <td>XI</td>
+                    <td>
+                        <table>
+                            <tr><td>Problema 1</td><td>10p</td></tr>
+                            <tr><td>Problema 2</td><td>10p</td></tr>
+                            <tr><td>Problema 3</td><td>10p</td></tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Națională</td>
+                    <td>XII</td>
+                    <td>
+                        <table>
+                            <tr><td>Problema 1</td><td>7p</td></tr>
+                            <tr><td>Problema 2</td><td>7p</td></tr>
+                            <tr><td>Problema 3</td><td>7p</td></tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="4"><strong>Sursa: Ministerul Educației</strong></td>
+                </tr>
+            </table>
+        </section>
+    </article>
+<section class="table-section">
+    <h2>Participanți Notabili și Rezultate</h2>
+    
+    <div class="table-responsive">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Nume Elev</th>
+                    <th>Arie / Disciplină</th>
+                    <th>Medalie</th>
+                    <th>Poză Participant</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="tooltip-container">
+                            <strong>Andrei Popescu</strong>
+                            <div class="tooltip-box">Clasa a XII-a, Colegiul Național. 3 prezențe la ONM.</div>
+                        </div>
+                    </td>
+                    
+                    <td>
+                        <div class="tooltip-container">
+                            Geometrie
+                            <div class="tooltip-box">A obținut punctaj maxim la problema de geometrie plană.</div>
+                        </div>
+                    </td>
+                    
+                    <td><span class="badge gold">Aur</span></td>
+                    
+                    <td>
+                        <div class="tooltip-container">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=50&q=80" alt="Elev 1" class="table-img">
+                            <div class="tooltip-box">
+                                Imagine surprinsă în timpul probei scrise la Etapa Națională.
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="tooltip-container">
+                            <strong>Maria Ionescu</strong>
+                            <div class="tooltip-box">Clasa a X-a. Medaliată și la Olimpiada de Fizică.</div>
+                        </div>
+                    </td>
+                    <td>Algebră</td>
+                    <td><span class="badge silver">Argint</span></td>
+                    <td>
+                        <div class="tooltip-container">
+                            <img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=50&q=80" alt="Elev 2" class="table-img">
+                            <div class="tooltip-box">
+                                Rezolvând ecuații funcționale complexe la panou.
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</main>
+
+<hr>
+
+<footer>
+    <p>&copy; 2026 OlimpiadaHub</p>
+</footer>
+
+</body>
+</html>

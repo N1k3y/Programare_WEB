@@ -1,0 +1,115 @@
+/* ================= TABEL RESPONSIVE ȘI TOOLTIP-URI CSS ================= */
+
+.table-section {
+    margin: 30px auto;
+    max-width: 900px;
+    padding: 0 15px;
+}
+
+/* Container pentru scroll orizontal pe telefoane (Responsive) */
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Stilizarea tabelului */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    text-align: left;
+}
+
+.styled-table thead tr {
+    background-color: #1e3c72; /* Folosim albastrul de la header pentru look unitar */
+    color: white;
+}
+
+.styled-table th, .styled-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #dddddd;
+    vertical-align: middle;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f3f3f3; /* Efect de hover pe rândul din tabel */
+}
+
+/* Imaginea din tabel */
+.table-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* O facem rotundă */
+    object-fit: cover;
+    border: 2px solid #0078d7;
+}
+
+/* Etichete pentru medalii */
+.badge {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+.badge.gold { background-color: #ffd700; color: #333; }
+.badge.silver { background-color: #c0c0c0; color: #333; }
+
+
+/* ================= MAGIA PENTRU DIV-UL ASCUNS (TOOLTIP) ================= */
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: help; /* Arată cursorul cu semnul întrebării */
+}
+
+/* Div-ul cu informații suplimentare - ascuns implicit */
+.tooltip-box {
+    position: absolute;
+    bottom: 120%; /* Îl așezăm deasupra textului/imaginii */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    width: max-content;
+    max-width: 250px;
+    text-align: center;
+    font-size: 13px;
+    z-index: 100;
+    
+    /* Ascundem div-ul folosind opacity */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Săgeata mică de sub tooltip (un truc CSS cu border) */
+.tooltip-box::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+/* La hover pe text/imagine, div-ul devine vizibil  */
+.tooltip-container:hover .tooltip-box {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ================= MEDIA QUERIES (Pentru Responsive) ================= */
+@media (max-width: 600px) {
+    .styled-table th, .styled-table td {
+        padding: 10px;
+        font-size: 14px; /* Micșorăm fontul pe ecrane mici */
+    }
+}

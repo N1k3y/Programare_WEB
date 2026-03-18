@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>Login</title>
+</head>
+<body>
+
+<header>
+    <h1>Autentificare</h1>
+    <div class="windows-menu-container">
+    <input type="checkbox" id="start-menu-toggle" class="css-checkbox">
+    <label for="start-menu-toggle" class="start-button">
+        <span class="icon">&#9883;</span> Start
+    </label>
+
+    <nav class="vertical-menu">
+        <ul class="menu-items">
+            <li><a href="index.html">Home</a></li>
+            
+            <li>
+                <input type="checkbox" id="submenu-toggle-1" class="css-checkbox">
+                <label for="submenu-toggle-1" class="menu-item-label">Subiecte &#9662;</label>
+                
+                <ul class="submenu">
+                    <li><a href="subiecte.html">Arhivă Subiecte</a></li>
+                    <li><a href="add_edit.html">Adaugă/Editează (Admin)</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="https://www.w3schools.com" target="_blank" title="Tutoriale HTML">Resurse externe</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+
+<hr>
+
+<main>
+    <section>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Date autentificare</legend>
+
+                <p>
+                    <label for="username"><i class="fa-solid fa-user"></i> Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Introdu utilizatorul..." required>
+                </p>
+                <p>
+                    <label for="parola"><i class="fa-solid fa-lock"></i> Parolă:</label>
+                    <input type="password" id="parola" name="parola" placeholder="Introdu parola..." required>
+                </p>
+
+                <p>
+                    <label><input type="radio" name="tip" value="elev" required> Elev</label>
+                    <label><input type="radio" name="tip" value="profesor"> Profesor</label>
+                </p>
+
+                <p>
+                    <label><input type="checkbox" name="remember" checked> Ține-mă minte până data viitoare</label>
+                </p>
+
+                <p>
+                    <input type="submit" value="Login">
+                </p>
+            </fieldset>
+        </form>
+    </section>
+</main>
+
+<hr>
+
+<footer>
+    <p>&copy; 2026 OlimpiadaHub</p>
+</footer>
+
+</body>
+</html>
