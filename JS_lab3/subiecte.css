@@ -40,9 +40,9 @@
     color: #007BFF;
 }
 
-
+/* Când coloana este sortată descrescător */
 .styled-table th.sort-desc::after {
-    content: '\25BC'; 
+    content: '\25BC'; /* Săgeată în jos */
     opacity: 1;
     color: #007BFF;
 }
@@ -64,7 +64,7 @@
 }
 .badge.gold { background-color: #ffd700; color: #333; }
 .badge.silver { background-color: #c0c0c0; color: #333; }
-.badge.bronze { background-color: #c0c0c0; color: #333; }
+.badge.bronze { background-color: #CD7F32; color: #333; }
 
 
 
