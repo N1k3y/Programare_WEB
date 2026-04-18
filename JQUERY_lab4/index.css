@@ -1,0 +1,573 @@
+
+:root {
+    --menu-bg: #1e1e1e; 
+    --menu-text: #ffffff;
+    --menu-hover: #0078d7; 
+    --menu-width: 250px;
+}
+
+header {
+    background: linear-gradient(135deg, #c9b3ab 10%, #2a5298 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #0078d7;
+}
+
+/* Animație pentru logo */
+header h1 {
+    display: inline-block; 
+    margin: 0;
+    padding: 10px;
+    transition: transform 0.5s ease-in-out; 
+    cursor: pointer;
+}
+
+    header h1:hover {
+        transform: scale(1.5) rotate(-5deg);
+    }
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Pagina va avea mereu cel puțin înălțimea ecranului (Viewport Height) */
+}
+
+main {
+    flex: 0; 
+    padding: 20px;
+}
+
+footer {
+    background-color: #1e1e1e;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto; 
+    border-top: 4px solid #0078d7; 
+}
+
+.css-checkbox {
+    display: none;
+}
+
+.windows-menu-container {
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index:9999;
+}
+
+/* Butonul (Iconița) prin care se accesează meniul */
+.start-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--menu-bg);
+    color: var(--menu-text);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    user-select: none;
+    transition: transform 0.5s ease-in-out; 
+}
+
+.start-button:hover{
+    transform: scale(1.15);
+}
+
+.start-button .icon {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+
+.vertical-menu {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: var(--menu-width);
+    background-color: var(--menu-bg);
+    display: none; /* Meniul este ascuns inițial */
+    flex-direction: column; /* Aranjare elemente folosind CSS Flexbox */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    margin-top: 5px;
+    z-index:1000;
+}
+
+/* Afișarea meniului principal vertical la click pe "Start" */
+#start-menu-toggle:checked ~ .vertical-menu {
+    display: flex;
+}
+
+.menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-items > li {
+    width: 100%;
+}
+
+/* Link-uri și etichete meniu */
+.menu-items a, .menu-item-label {
+    display: block;
+    padding: 15px 20px;
+    color: var(--menu-text);
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 1s ease; 
+}
+
+/* Efect de hover pe elementele din meniu */
+.menu-items a:hover, .menu-item-label:hover {
+    background-color: var(--menu-hover);
+}
+
+/* Submeniul (Ascuns inițial) */
+.submenu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #2b2b2b; /* Nuanță diferențiată pentru submeniu */
+    flex-direction: column;
+}
+
+.submenu a {
+    padding-left: 40px; /* Indentare pentru a arăta ierarhia */
+}
+
+/* Afișarea submeniului la click pe elementul din meniul vertical */
+.css-checkbox:checked ~ .submenu {
+    display: flex;
+    /* Animație care deschide submeniul de sus în jos */
+    animation: slideDown 0.5s ease-out forwards; 
+}
+
+/* Animație CSS pentru deschiderea de sus în jos */
+@keyframes slideDown {
+    from 0% {
+        opacity: 0;
+        transform: translateY(-15px);
+        max-height: 0;
+        overflow: hidden;
+    }
+    to 100% {
+        opacity: 1;
+        transform: translateY(0px);
+        max-height: 500px; /* O valoare suficient de mare pentru a permite extinderea */
+    }
+}
+
+
+
+/* ================= SLIDER IMAGINI ================= */
+
+.gallery-section {
+    margin: 40px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* Containerul principal rezervă spațiu pentru imaginile mari folosind padding-top */
+.css-slider {
+    position: relative; 
+    width: 100%;
+    padding-top: 420px; 
+}
+
+/* Imaginea implicită se așază în spațiul de 420px */
+.default-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+/* Rândul de miniaturi stă automat sub spațiul rezervat */
+.thumbnails-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.thumbnail-item {
+    cursor: pointer;
+    /* Atenție: Lăsăm intenționat fără 'position: relative' aici! */
+}
+
+/* Aspectul imaginilor mici */
+.thumb-img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+/* Efect hover pe imaginea mică */
+.thumbnail-item:hover .thumb-img {
+    transform: scale(1.05);
+    border-color: #0078d7;
+}
+
+/* Imaginile mari (magia CSS) */
+.large-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px; /* Acoperă perfect imaginea implicită */
+    object-fit: cover;
+    border-radius: 8px;
+    
+    opacity: 0; /* Ascunse inițial */
+    z-index: 0;
+    transition: opacity 0.4s ease-in-out;
+    
+    /* FIX CRITIC: Previne ca imaginea mare să strice hover-ul mouse-ului */
+    pointer-events: none; 
+}
+
+/* Când pui mouse-ul pe miniatură, imaginea mare iese în față */
+.thumbnail-item:hover .large-img {
+    opacity: 1;
+    z-index: 10;
+}
+
+
+/*  STILIZARE FORMULARE */
+form {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+fieldset {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+legend {
+    font-weight: bold;
+    color: #1e3c72;
+    background: #fff;
+    padding: 0 10px;
+}
+
+/* Stiluri generale pentru inputuri, select și textarea */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0 15px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; 
+    font-family: inherit;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efect la click (focus) pe câmpuri */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #0078d7;
+    box-shadow: 0 0 8px rgba(0, 120, 215, 0.3);
+    outline: none;
+}
+
+/* Stilizare butoane (Submit) */
+input[type="submit"] {
+    background-color: #1e3c72;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #2a5298;
+    transform: translateY(-2px); /* Butonul se ridică puțin */
+}
+
+input[type="submit"]:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Checkbox-uri și Radio buttons */
+input[type="radio"], 
+input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* 2. SPRITE-URI CSS  */
+/* Un sprite folosește o singură imagine care conține mai multe iconițe, modificând doar poziția de fundal */
+.sprite-icon {
+    background-image: url('https://css-tricks.com/wp-content/uploads/2014/03/social-sprite.png'); /* Imagine demonstrativă */
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Decupăm iconițele din imaginea mare schimbând coordonatele */
+.icon-facebook { width: 50px; height: 50px; background-position: 0 0; }
+.icon-twitter  { width: 50px; height: 50px; background-position: -50px 0; }
+
+
+/* 3. WIDGET-URI / CARDURI (DASHBOARD) */
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite trecerea pe rândul următor pe ecrane mici */
+    gap: 20px;
+    justify-content: center;
+    margin: 40px auto;
+    padding: 0 20px;
+    max-width: 1000px;
+}
+
+.widget-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    padding: 25px;
+    flex: 1;
+    min-width: 250px; /* Pe telefoane se vor pune unele sub altele */
+    text-align: center;
+    border-top: 5px solid #0078d7;
+    transition: transform 0.3s;
+}
+
+.widget-card:hover {
+    transform: translateY(-10px); /* Cardul sare în sus la hover */
+}
+
+.widget-icon {
+    font-size: 40px;
+    color: #1e3c72;
+    margin-bottom: 15px;
+}
+
+.widget-card h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.widget-card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0078d7;
+    margin: 0;
+}
+
+
+/* Responsive design */
+
+/* 1. Setare generală vitală pentru responsive (previne ieșirea elementelor din pagină) */
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+    header h1 {
+        font-size: 24px; 
+    }
+
+    .thumbnails-container {
+        flex-wrap: wrap;
+    }
+
+    form {
+        padding: 15px;
+        margin: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 20px;
+    }
+    .start-button {
+        width: 100%;
+        justify-content: center;
+        border-radius: 0; 
+    }
+
+    .vertical-menu {
+        width: 100%;
+    }
+
+    .widget-card {
+        min-width: 100%;
+    }
+
+    .css-slider {
+        padding-top: 250px; 
+    }
+    
+    .default-image, 
+    .large-img {
+        height: 230px; 
+    }
+}
+
+/* Containerul general pentru lista cu slider */
+.slider-container {
+    position: relative;
+    max-width: 600px;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-height: 120px; /* Înălțime minimă pentru a nu "sări" pagina când se schimbă textul */
+}
+
+/* Resetăm stilul listei */
+#lista-anunturi {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* Toate elementele listei sunt ascunse implicit și au tranziție */
+#lista-anunturi .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0; /* Invizibil */
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out; /* Efectul de tranziție cerut */
+}
+
+/* Elementul cu clasa "active" va fi vizibil (doar primul va avea asta din HTML) */
+#lista-anunturi .slide.active {
+    opacity: 1; /* Vizibil */
+    visibility: visible;
+    position: relative; /* Îl lăsăm să ocupe spațiu real */
+}
+
+/* Stil pentru link-ul Read More */
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Stil pentru butoane */
+.slider-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.slider-controls button {
+    padding: 8px 15px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.slider-controls button:hover {
+    background-color: #555;
+}
+
+
+/* Stiluri pentru panoul de control al slider-ului */
+.slider-settings {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.control-btn {
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 100px; /* Lățime fixă pentru a nu-și schimba dimensiunea între Play și Pauză */
+}
+
+.control-btn:hover {
+    background-color: #0056b3;
+}
+
+.control-label {
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+}
+
+.control-select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+}

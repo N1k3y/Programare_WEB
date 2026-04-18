@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="index.css">
+<script src="slide_lista.js"></script>
+<script src="slider_logic.js"></script>
+<title>OlimpiadaHub - Home</title>
+</head>
+<body>
+
+<header>
+    <h1>Platformă Subiecte Olimpiadă</h1>
+    <div class="windows-menu-container">
+    <input type="checkbox" id="start-menu-toggle" class="css-checkbox">
+    <label for="start-menu-toggle" class="start-button">
+        <span class="icon">&#9883;</span> Start
+    </label>
+
+    <nav class="vertical-menu">
+        <ul class="menu-items">
+            <li><a href="index.html">Home</a></li>
+            
+            <li>
+                <input type="checkbox" id="submenu-toggle-1" class="css-checkbox">
+                <label for="submenu-toggle-1" class="menu-item-label">Subiecte &#9662;</label>
+                
+                <ul class="submenu">
+                    <li><a href="subiecte.html">Arhivă Subiecte</a></li>
+                    <li><a href="add_edit.html">Adaugă/Editează (Admin)</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="https://www.w3schools.com" target="_blank" title="Tutoriale HTML">Resurse externe</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+
+<hr>
+
+<main>
+    <section>
+        <article>
+            <header>
+                <h2>Arii de pregătire</h2>
+            </header>
+            <ul>
+                <li>Algebră
+                    <ul>
+                        <li>Inegalități</li>
+                        <li>Ecuații funcționale</li>
+                    </ul>
+                </li>
+                <li>Geometrie</li>
+                <li>Teoria numerelor</li>
+                <li>Combinatorică</li>
+            </ul>
+        </article>
+    </section>
+
+    <aside>
+        <details>
+            <summary><strong>Informații suplimentare</strong></summary>
+            <p>Pregătirea constantă este cheia succesului la olimpiade.</p>
+        </details>
+    </aside>
+
+
+
+    <section>
+        <h2>Etape competiție</h2>
+        <ol type="I" start="1">
+            <li>Etapa locală</li>
+            <li>Etapa județeană
+                <ol type="A">
+                    <li>Proba scrisă</li>
+                    <li>Proba orală</li>
+                </ol>
+            </li>
+            <li>Etapa națională</li>
+        </ol>
+    </section>
+
+    <figure>
+        <img src="https://www.w3.org/html/logo/badge/html5-badge-h-solo.png" alt="HTML5 Valid" width="63" height="64">
+        <figcaption>Standardul Web Modern</figcaption>
+    </figure>
+
+    <p><strong>Platformă dedicată</strong> elevilor care doresc să obțină <span>performanță</span> în competiții școlare.</p>
+
+
+    <section class="anunturi-section">
+        <h2>Noutăți și Anunțuri</h2>
+        
+        <div class="slider-container">
+            <ul id="lista-anunturi">
+                <li class="slide active">
+                    <p>Olimpiada Națională de Matematică de anul acesta va avea loc în luna aprilie. Vă așteptăm cu drag!</p>
+                    <a href="#" class="read-more">Read more...</a>
+                </li>
+                <li class="slide">
+                    <p>S-au afișat rezultatele de la etapa județeană. Felicitări tuturor participanților pentru efortul depus!</p>
+                    <a href="#" class="read-more">Read more...</a>
+                </li>
+                <li class="slide">
+                    <p>Sesiunile de pregătire online gratuite vor începe de vineri. Nu uitați să vă înscrieți prin formularul dedicat.</p>
+                    <a href="#" class="read-more">Read more...</a>
+                </li>
+            </ul>
+
+            <div class="slider-controls">
+                <button id="prevBtn"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                <button id="nextBtn">Next <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+    <h2>Galerie Foto Olimpiade</h2>
+
+    <div class="slider-settings">
+        <button id="playPauseBtn" class="control-btn">
+            <i class="fa-solid fa-play"></i> Play
+        </button>
+        
+        <label class="control-label">
+            <input type="checkbox" id="repeatCheckbox" checked> Repetare la final
+        </label>
+        
+        <label class="control-label">
+            Interval:
+            <select id="intervalSelect" class="control-select">
+                <option value="1000">1 secundă</option>
+                <option value="2000" selected>2 secunde</option>
+                <option value="3000">3 secunde</option>
+                <option value="5000">5 secunde</option>
+            </select>
+        </label>
+    </div>
+    
+    <div class="css-slider">
+        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80" alt="Implicit" class="default-image">
+
+        <div class="thumbnails-container">
+            
+            <div class="thumbnail-item">
+                <img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?auto=format&fit=crop&w=150&q=80" alt="Algebră" class="thumb-img">
+                <img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?auto=format&fit=crop&w=800&q=80" alt="Algebră Mare" class="large-img">
+            </div>
+
+            <div class="thumbnail-item">
+                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=150&q=80" alt="Geometrie" class="thumb-img">
+                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80" alt="Geometrie Mare" class="large-img">
+            </div>
+
+            <div class="thumbnail-item">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=150&q=80" alt="Studiu" class="thumb-img">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80" alt="Studiu Mare" class="large-img">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="dashboard-section">
+    <h2 style="text-align: center; color: #1e3c72;">Statistici Platformă</h2>
+    
+    <div class="dashboard-container">
+        <div class="widget-card">
+            <i class="fa-solid fa-users widget-icon"></i>
+            <h3>Elevi Înscriși</h3>
+            <p>1,254</p>
+        </div>
+
+        <div class="widget-card">
+            <i class="fa-solid fa-file-signature widget-icon"></i>
+            <h3>Subiecte Încărcate</h3>
+            <p>320</p>
+        </div>
+
+        <div class="widget-card">
+            <div class="sprite-icon icon-facebook"></div>
+            <h3>Urmărește-ne</h3>
+            <p style="font-size: 16px; margin-top: 10px; color: #666;">Pe rețelele sociale</p>
+        </div>
+    </div>
+</section>
+</main>
+
+<hr>
+
+<footer>
+    <p>&copy; 2026 OlimpiadaHub</p>
+</footer>
+
+</body>
+</html>
