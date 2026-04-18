@@ -285,7 +285,7 @@ textarea {
     display: block;
     border: 1px solid #ccc;
     border-radius: 6px;
-    box-sizing: border-box; /* Asigură că padding-ul nu strică lățimea */
+    box-sizing: border-box; 
     font-family: inherit;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -450,4 +450,124 @@ img {
     .large-img {
         height: 230px; 
     }
+}
+
+/* Containerul general pentru lista cu slider */
+.slider-container {
+    position: relative;
+    max-width: 600px;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-height: 120px; /* Înălțime minimă pentru a nu "sări" pagina când se schimbă textul */
+}
+
+/* Resetăm stilul listei */
+#lista-anunturi {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* Toate elementele listei sunt ascunse implicit și au tranziție */
+#lista-anunturi .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0; /* Invizibil */
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out; /* Efectul de tranziție cerut */
+}
+
+/* Elementul cu clasa "active" va fi vizibil (doar primul va avea asta din HTML) */
+#lista-anunturi .slide.active {
+    opacity: 1; /* Vizibil */
+    visibility: visible;
+    position: relative; /* Îl lăsăm să ocupe spațiu real */
+}
+
+/* Stil pentru link-ul Read More */
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Stil pentru butoane */
+.slider-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.slider-controls button {
+    padding: 8px 15px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.slider-controls button:hover {
+    background-color: #555;
+}
+
+
+/* Stiluri pentru panoul de control al slider-ului */
+.slider-settings {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.control-btn {
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 100px; /* Lățime fixă pentru a nu-și schimba dimensiunea între Play și Pauză */
+}
+
+.control-btn:hover {
+    background-color: #0056b3;
+}
+
+.control-label {
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+}
+
+.control-select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-family: inherit;
 }

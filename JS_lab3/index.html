@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="index.css">
+<script src="slide_lista.js"></script>
+<script src="slider_logic.js"></script>
 <title>OlimpiadaHub - Home</title>
 </head>
 <body>
@@ -67,6 +69,8 @@
         </details>
     </aside>
 
+
+
     <section>
         <h2>Etape competiție</h2>
         <ol type="I" start="1">
@@ -88,8 +92,55 @@
 
     <p><strong>Platformă dedicată</strong> elevilor care doresc să obțină <span>performanță</span> în competiții școlare.</p>
 
+
+    <section class="anunturi-section">
+        <h2>Noutăți și Anunțuri</h2>
+        
+        <div class="slider-container">
+            <ul id="lista-anunturi">
+                <li class="slide active">
+                    <p>Olimpiada Națională de Matematică de anul acesta va avea loc în luna aprilie. Vă așteptăm cu drag!</p>
+                    <a href="#" class="read-more">Read more...</a>
+                </li>
+                <li class="slide">
+                    <p>S-au afișat rezultatele de la etapa județeană. Felicitări tuturor participanților pentru efortul depus!</p>
+                    <a href="#" class="read-more">Read more...</a>
+                </li>
+                <li class="slide">
+                    <p>Sesiunile de pregătire online gratuite vor începe de vineri. Nu uitați să vă înscrieți prin formularul dedicat.</p>
+                    <a href="#" class="read-more">Read more...</a>
+                </li>
+            </ul>
+
+            <div class="slider-controls">
+                <button id="prevBtn"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                <button id="nextBtn">Next <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
     <section class="gallery-section">
     <h2>Galerie Foto Olimpiade</h2>
+
+    <div class="slider-settings">
+        <button id="playPauseBtn" class="control-btn">
+            <i class="fa-solid fa-play"></i> Play
+        </button>
+        
+        <label class="control-label">
+            <input type="checkbox" id="repeatCheckbox" checked> Repetare la final
+        </label>
+        
+        <label class="control-label">
+            Interval:
+            <select id="intervalSelect" class="control-select">
+                <option value="1000">1 secundă</option>
+                <option value="2000" selected>2 secunde</option>
+                <option value="3000">3 secunde</option>
+                <option value="5000">5 secunde</option>
+            </select>
+        </label>
+    </div>
     
     <div class="css-slider">
         <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80" alt="Implicit" class="default-image">
