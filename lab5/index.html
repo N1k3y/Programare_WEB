@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="index.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="jquery_slider.js"></script>
+<script src="jquery_select.js"></script>
+<title>OlimpiadaHub - Home</title>
+</head>
+<body>
+
+<header>
+    <h1>Platformă Subiecte Olimpiadă</h1>
+    <div class="windows-menu-container">
+    <input type="checkbox" id="start-menu-toggle" class="css-checkbox">
+    <label for="start-menu-toggle" class="start-button">
+        <span class="icon">&#9883;</span> Start
+    </label>
+
+    <nav class="vertical-menu">
+        <ul class="menu-items">
+            <li><a href="index.html">Home</a></li>
+            
+            <li>
+                <input type="checkbox" id="submenu-toggle-1" class="css-checkbox">
+                <label for="submenu-toggle-1" class="menu-item-label">Subiecte &#9662;</label>
+                
+                <ul class="submenu">
+                    <li><a href="subiecte.html">Arhivă Subiecte</a></li>
+                    <li><a href="add_edit.html">Adaugă/Editează (Admin)</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="https://www.w3schools.com" target="_blank" title="Tutoriale HTML">Resurse externe</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+
+<hr>
+
+<main>
+    <section>
+        <article>
+            <header>
+                <h2>Arii de pregătire</h2>
+            </header>
+            <ul>
+                <li>Algebră
+                    <ul>
+                        <li>Inegalități</li>
+                        <li>Ecuații funcționale</li>
+                    </ul>
+                </li>
+                <li>Geometrie</li>
+                <li>Teoria numerelor</li>
+                <li>Combinatorică</li>
+            </ul>
+        </article>
+    </section>
+
+    <aside>
+        <details>
+            <summary><strong>Informații suplimentare</strong></summary>
+            <p>Pregătirea constantă este cheia succesului la olimpiade.</p>
+        </details>
+    </aside>
+
+
+
+    <section>
+        <h2>Etape competiție</h2>
+        <ol type="I" start="1">
+            <li>Etapa locală</li>
+            <li>Etapa județeană
+                <ol type="A">
+                    <li>Proba scrisă</li>
+                    <li>Proba orală</li>
+                </ol>
+            </li>
+            <li>Etapa națională</li>
+        </ol>
+    </section>
+
+    <figure>
+        <img src="https://www.w3.org/html/logo/badge/html5-badge-h-solo.png" alt="HTML5 Valid" width="63" height="64">
+        <figcaption>Standardul Web Modern</figcaption>
+    </figure>
+
+    <p><strong>Platformă dedicată</strong> elevilor care doresc să obțină <span>performanță</span> în competiții școlare.</p>
+
+
+    <section class="anunturi-section">
+        <h2>Noutăți și Anunțuri</h2>
+        
+        <div class="slider-container">
+            <ul id="lista-anunturi">
+                <li class="slide active">
+                    <p>Olimpiada Națională de Matematică de anul acesta va avea loc în luna aprilie. Vă așteptăm cu drag!</p>
+                    <a href="#" class="read-more">Read more...</a>
+                </li>
+                <li class="slide">
+                    <p>S-au afișat rezultatele de la etapa județeană. Felicitări tuturor participanților pentru efortul depus!</p>
+                    <a href="#" class="read-more">Read more...</a>
+                </li>
+                <li class="slide">
+                    <p>Sesiunile de pregătire online gratuite vor începe de vineri. Nu uitați să vă înscrieți prin formularul dedicat.</p>
+                    <a href="#" class="read-more">Read more...</a>
+                </li>
+            </ul>
+
+            <div class="slider-controls">
+                <button id="prevBtn"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                <button id="nextBtn">Next <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <div class="custom-select-wrapper">
+    <label><b>Abonat</b></label>
+    <div class="custom-select-trigger">
+        <span class="selected-text">Alege o persoană...</span> 
+        <span class="arrow">&#9662;</span>
+    </div>
+    
+    <div class="custom-options-container" style="display: none;">
+        <div class="custom-search-box">
+            <input type="text" id="live-search" placeholder="Caută...">
+        </div>
+        <ul class="custom-options-list">
+            <li data-value="1">Cheres I. Ana</li>
+            <li data-value="2">Barburas Alex</li>
+            <li data-value="3">Baciu Alex</li>
+            <li data-value="4">Fat Alexandru</li>
+            <li data-value="5">Hirt C. Alex</li>
+            <li data-value="6">Petrescu V. Alex</li>
+            <li data-value="7">Jucan Alex</li>
+            <li data-value="8">Mielusel Alex</li>
+        </ul>
+    </div>
+    
+    <input type="hidden" name="abonat_id" id="abonat_id" value="">
+</div>
+
+   <section class="jquery-slider-section">
+    <h2>Slider Vertical jQuery Complet</h2>
+    
+    <div class="slider-controls-jq">
+        <label>Imagini vizibile: <input type="number" id="visible-items" value="1" min="1" max="3"></label>
+        <label>Secunde: <input type="number" id="slider-speed" value="3" min="1"></label>
+        <button id="apply-settings">Aplică Setările</button>
+    </div>
+    
+    <div class="jq-slider-container">
+        <div class="jq-slider-wrapper">
+            <div class="slide-item"><img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800" alt="Img 1"></div>
+            <div class="slide-item">
+                <video width="100%" height="100%" controls muted>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="slide-item"><img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800" alt="Img 2"></div>
+            <div class="slide-item"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800" alt="Img 3"></div>
+        </div>
+        
+        <div class="slider-arrows">
+            <button class="up-arrow">&#9650;</button>
+            <button class="down-arrow">&#9660;</button>
+        </div>
+    </div>
+</section>
+
+<section class="dashboard-section">
+    <h2 style="text-align: center; color: #1e3c72;">Statistici Platformă</h2>
+    
+    <div class="dashboard-container">
+        <div class="widget-card">
+            <i class="fa-solid fa-users widget-icon"></i>
+            <h3>Elevi Înscriși</h3>
+            <p>1,254</p>
+        </div>
+
+        <div class="widget-card">
+            <i class="fa-solid fa-file-signature widget-icon"></i>
+            <h3>Subiecte Încărcate</h3>
+            <p>320</p>
+        </div>
+
+        <div class="widget-card">
+            <div class="sprite-icon icon-facebook"></div>
+            <h3>Urmărește-ne</h3>
+            <p style="font-size: 16px; margin-top: 10px; color: #666;">Pe rețelele sociale</p>
+        </div>
+    </div>
+</section>
+</main>
+
+<hr>
+
+<footer>
+    <p>&copy; 2026 OlimpiadaHub</p>
+</footer>
+
+</body>
+</html>
