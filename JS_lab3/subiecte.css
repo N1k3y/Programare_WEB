@@ -117,3 +117,20 @@
         font-size: 14px; 
     }
 }
+
+/* Clasa care va fi adăugată din JavaScript pe rândurile selectate */
+.rand-selectat {
+    background-color: #fff3cd !important; /* Un galben deschis pentru evidențiere */
+    transition: background-color 0.3s ease;
+}
+
+/* Facem medaliile să pară butoane (cursor pointer) ca să știe utilizatorul că poate da click */
+.styled-table tbody .badge {
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.styled-table tbody .badge:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+}

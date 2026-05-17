@@ -1,41 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Selectăm elementele necesare
+    
     const slides = document.querySelectorAll('#lista-anunturi .slide');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     
-    // Verificăm dacă există lista pe pagină pentru a evita erori pe alte pagini
     if (slides.length === 0) return; 
 
     let currentIndex = 0;
-    const timpAfisare = 4000; // n secunde (aici am pus 4000 milisecunde = 4 secunde)
+    const timpAfisare = 4000; 
     let slideTimer;
 
-    // Funcția care schimbă slide-ul vizibil
+    
     function arataSlide(index) {
-        // Ascundem slide-ul curent ștergându-i clasa "active"
+        // stergem clasa slide ului curent
         slides[currentIndex].classList.remove('active');
         
-        // Actualizăm indexul curent, asigurându-ne că e în limite (efect de buclă)
+        // actualizam indexul
         currentIndex = index;
         
         if (currentIndex < 0) {
-            currentIndex = slides.length - 1; // De la primul sărim la ultimul
+            currentIndex = slides.length - 1; 
         } else if (currentIndex >= slides.length) {
-            currentIndex = 0; // De la ultimul sărim la primul
+            currentIndex = 0; 
         }
         
-        // Afișăm noul slide adăugându-i clasa "active"
         slides[currentIndex].classList.add('active');
     }
 
-    // Funcția pentru a trece la următorul slide
     function nextSlide() {
         arataSlide(currentIndex + 1);
-        resetTimer(); // Resetăm temporizatorul dacă utilizatorul a dat click manual
+        resetTimer(); 
     }
 
-    // Funcția pentru a trece la slide-ul anterior
     function prevSlide() {
         arataSlide(currentIndex - 1);
         resetTimer();
@@ -48,16 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }, timpAfisare);
     }
 
-    // Funcția care resetează timpul (utilă când apăsăm butoanele)
     function resetTimer() {
         clearInterval(slideTimer);
         startTimer();
     }
 
-    // Atașăm evenimentele de click pentru butoane
     nextBtn.addEventListener('click', nextSlide);
     prevBtn.addEventListener('click', prevSlide);
 
-    // Pornim cronometrul la încărcarea paginii
     startTimer();
 });

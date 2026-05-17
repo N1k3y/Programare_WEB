@@ -571,3 +571,194 @@ img {
     border: 1px solid #ccc;
     font-family: inherit;
 }
+
+
+/* ================= SLIDER VERTICAL JQUERY (LAB 4) ================= */
+
+.jquery-slider-section {
+    margin: 40px auto;
+    text-align: center;
+}
+
+/* Zona de controale (input-uri și buton de aplicare) */
+.slider-controls-jq {
+    margin-bottom: 20px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    display: inline-flex;
+    gap: 15px;
+    align-items: center;
+    border: 1px solid #ddd;
+}
+
+.slider-controls-jq label {
+    font-weight: bold;
+    color: #1e3c72;
+}
+
+.slider-controls-jq input {
+    width: 60px;
+    padding: 5px;
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.slider-controls-jq button {
+    background-color: #1e3c72;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.slider-controls-jq button:hover {
+    background-color: #0078d7;
+}
+
+/* Containerul principal al slider-ului */
+.jq-slider-container {
+    position: relative;
+    width: 600px;
+    margin: 0 auto 20px auto;
+    overflow: hidden;
+    border: 3px solid #1e3c72;
+    background: #000;
+    border-radius: 8px;
+}
+
+.jq-slider-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Fiececare imagine / video ocupă o înălțime fixă */
+.slide-item {
+    width: 100%;
+    height: 300px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slide-item img, .slide-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Săgețile de sus/jos ascunse implicit */
+.slider-arrows {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    transition: opacity 0.3s;
+    
+    /* Previne ca div-ul invizibil să blocheze click-ul pe video */
+    pointer-events: none; 
+}
+
+/* Săgețile apar când pui mouse-ul pe slider */
+.jq-slider-container:hover .slider-arrows {
+    opacity: 1;
+}
+
+/* Stilizare pentru butoanele propriu-zise tip săgeată */
+.slider-arrows button {
+    pointer-events: auto; /* Reactivăm click-ul doar pe butoane */
+    background: rgba(30, 60, 114, 0.7);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background 0.3s;
+}
+
+.slider-arrows button:hover {
+    background: rgba(0, 120, 215, 0.9);
+}
+
+/* selector */
+.custom-select-wrapper {
+    position: relative;
+    width: 350px; /* Lățimea dorită */
+    margin-bottom: 20px;
+    font-family: inherit;
+}
+
+.custom-select-wrapper label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.custom-select-trigger {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    background: #e9ecef; /* Fundal gri deschis ca în imagine */
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-options-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-radius: 0 0 4px 4px;
+}
+
+.custom-search-box {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.custom-search-box input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #0078d7; /* Contur albastru la input */
+    border-radius: 3px;
+    outline: none;
+}
+
+.custom-options-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 200px; /* Afișează scroll dacă sunt multe opțiuni */
+    overflow-y: auto;
+}
+
+.custom-options-list li {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+/* Efectul de hover albastru ca în poza ta */
+.custom-options-list li:hover {
+    background-color: #2b78e4; 
+    color: white;
+}

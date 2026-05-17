@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="index.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>Admin Subiecte</title>
 </head>
 <body>
@@ -92,6 +93,46 @@
 <footer>
     <p>&copy; 2026 OlimpiadaHub</p>
 </footer>
+<script>
+$(document).ready(function() {
+    // interceptam formularul
+    $('form').on('submit', function(e) {
+        // vbutonul ce a decalnsat submit ul
+        var submitterValue = e.originalEvent.submitter.value;
+        
+        if (submitterValue === 'Adaugă') {
+            e.preventDefault(); // nu il trimitem standard
 
+            
+            var titlu = $('#titlu').val();
+            var an = $('#an').val();
+            var etapa = $('#etapa').val();
+            var clasa = $('input[name="clasa"]:checked').val();
+            var desc_admin = $('#desc_admin').val();
+
+            // cream obiect pt subiect
+            var newSubiect = {
+                id: Date.now(),
+                titlu: titlu,
+                an: an,
+                etapa: etapa,
+                clasa: clasa,
+                descriere: desc_admin
+            };
+
+            // preluam array ul din local storage
+            var subiecteSalvate = JSON.parse(localStorage.getItem('subiecte_noi')) || [];
+            
+            subiecteSalvate.push(newSubiect);
+            
+           
+            localStorage.setItem('subiecte_noi', JSON.stringify(subiecteSalvate));
+
+            alert('Subiectul a fost adăugat cu succes!');
+            $('form')[0].reset();
+        }
+    });
+});
+</script>
 </body>
 </html>

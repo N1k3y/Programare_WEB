@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="index.css">
-<script src="slide_lista.js"></script>
-<script src="slider_logic.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="jquery_slider.js"></script>
+<script src="jquery_select.js"></script>
 <title>OlimpiadaHub - Home</title>
 </head>
 <body>
@@ -119,49 +121,57 @@
         </div>
     </section>
 
-    <section class="gallery-section">
-    <h2>Galerie Foto Olimpiade</h2>
-
-    <div class="slider-settings">
-        <button id="playPauseBtn" class="control-btn">
-            <i class="fa-solid fa-play"></i> Play
-        </button>
-        
-        <label class="control-label">
-            <input type="checkbox" id="repeatCheckbox" checked> Repetare la final
-        </label>
-        
-        <label class="control-label">
-            Interval:
-            <select id="intervalSelect" class="control-select">
-                <option value="1000">1 secundă</option>
-                <option value="2000" selected>2 secunde</option>
-                <option value="3000">3 secunde</option>
-                <option value="5000">5 secunde</option>
-            </select>
-        </label>
+    <div class="custom-select-wrapper">
+    <label><b>Abonat</b></label>
+    <div class="custom-select-trigger">
+        <span class="selected-text">Alege o persoană...</span> 
+        <span class="arrow">&#9662;</span>
     </div>
     
-    <div class="css-slider">
-        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80" alt="Implicit" class="default-image">
+    <div class="custom-options-container" style="display: none;">
+        <div class="custom-search-box">
+            <input type="text" id="live-search" placeholder="Caută...">
+        </div>
+        <ul class="custom-options-list">
+            <li data-value="1">Cheres I. Ana</li>
+            <li data-value="2">Barburas Alex</li>
+            <li data-value="3">Baciu Alex</li>
+            <li data-value="4">Fat Alexandru</li>
+            <li data-value="5">Hirt C. Alex</li>
+            <li data-value="6">Petrescu V. Alex</li>
+            <li data-value="7">Jucan Alex</li>
+            <li data-value="8">Mielusel Alex</li>
+        </ul>
+    </div>
+    
+    <input type="hidden" name="abonat_id" id="abonat_id" value="">
+</div>
 
-        <div class="thumbnails-container">
-            
-            <div class="thumbnail-item">
-                <img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?auto=format&fit=crop&w=150&q=80" alt="Algebră" class="thumb-img">
-                <img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?auto=format&fit=crop&w=800&q=80" alt="Algebră Mare" class="large-img">
+   <section class="jquery-slider-section">
+    <h2>Slider Vertical jQuery Complet</h2>
+    
+    <div class="slider-controls-jq">
+        <label>Imagini vizibile: <input type="number" id="visible-items" value="1" min="1" max="3"></label>
+        <label>Secunde: <input type="number" id="slider-speed" value="3" min="1"></label>
+        <button id="apply-settings">Aplică Setările</button>
+    </div>
+    
+    <div class="jq-slider-container">
+        <div class="jq-slider-wrapper">
+            <div class="slide-item"><img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800" alt="Img 1"></div>
+            <div class="slide-item">
+                <video width="100%" height="100%" controls muted>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-
-            <div class="thumbnail-item">
-                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=150&q=80" alt="Geometrie" class="thumb-img">
-                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80" alt="Geometrie Mare" class="large-img">
-            </div>
-
-            <div class="thumbnail-item">
-                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=150&q=80" alt="Studiu" class="thumb-img">
-                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80" alt="Studiu Mare" class="large-img">
-            </div>
-
+            <div class="slide-item"><img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800" alt="Img 2"></div>
+            <div class="slide-item"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800" alt="Img 3"></div>
+        </div>
+        
+        <div class="slider-arrows">
+            <button class="up-arrow">&#9650;</button>
+            <button class="down-arrow">&#9660;</button>
         </div>
     </div>
 </section>

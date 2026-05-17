@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="index.css">
 <link rel="stylesheet" href="subiecte.css">
 <script src="validation.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="jquery_tabs.js"></script>
+<script src="jquery_creative.js"></script>
 <title>Subiecte</title>
 </head>
 <body>
@@ -43,47 +46,102 @@
 <hr>
 
 <main>
+   <main>
     <article>
         <section>
-            <table>
+            <table class="tabel-subiecte" border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
                 <tr>
                     <th>An</th>
                     <th>Etapă</th>
                     <th>Clasă</th>
-                    <th>Detalii</th>
+                    <th>Detalii (Tab-uri)</th>
                 </tr>
 
                 <tr>
                     <td rowspan="2">2024</td>
                     <td>Județeană</td>
                     <td>XI</td>
-                    <td>
-                        <table>
-                            <tr><td>Problema 1</td><td>10p</td></tr>
-                            <tr><td>Problema 2</td><td>10p</td></tr>
-                            <tr><td>Problema 3</td><td>10p</td></tr>
-                        </table>
+                    <td style="padding: 10px; text-align: left;">
+                        <div class="tabs-container">
+                            <ul class="tabs-nav">
+                                <li class="tab-link active" data-tab="tab-1-1">Subiecte</li>
+                                <li class="tab-link" data-tab="tab-1-2">Barem</li>
+                                <li class="tab-link" data-tab="tab-1-3">Recomandări</li>
+                            </ul>
+                            
+                            <div id="tab-1-1" class="tab-content active">
+                                <table style="margin: 0 auto;">
+                                    <tr><td>Problema 1</td><td>10p</td></tr>
+                                    <tr><td>Problema 2</td><td>10p</td></tr>
+                                    <tr><td>Problema 3</td><td>10p</td></tr>
+                                </table>
+                            </div>
+                            
+                            <div id="tab-1-2" class="tab-content">
+                                <p>Aici poți pune link către <a href="#">Baremul de corectare (PDF)</a>.</p>
+                            </div>
+                            
+                            <div id="tab-1-3" class="tab-content">
+                                <p>Sfat: Recapitulare inegalități și serii.</p>
+                            </div>
+                        </div>
                     </td>
                 </tr>
 
                 <tr>
                     <td>Națională</td>
                     <td>XII</td>
-                    <td>
-                        <table>
-                            <tr><td>Problema 1</td><td>7p</td></tr>
-                            <tr><td>Problema 2</td><td>7p</td></tr>
-                            <tr><td>Problema 3</td><td>7p</td></tr>
-                        </table>
+                    <td style="padding: 10px; text-align: left;">
+                        <div class="tabs-container">
+                            <ul class="tabs-nav">
+                                <li class="tab-link active" data-tab="tab-2-1">Subiecte</li>
+                                <li class="tab-link" data-tab="tab-2-2">Barem</li>
+                                <li class="tab-link" data-tab="tab-2-3">Recomandări</li>
+                            </ul>
+                            
+                            <div id="tab-2-1" class="tab-content active">
+                                <table style="margin: 0 auto;">
+                                    <tr><td>Problema 1</td><td>7p</td></tr>
+                                    <tr><td>Problema 2</td><td>7p</td></tr>
+                                    <tr><td>Problema 3</td><td>7p</td></tr>
+                                </table>
+                            </div>
+                            
+                            <div id="tab-2-2" class="tab-content">
+                                <p>Aici poți pune link către <a href="#">Baremul Național (PDF)</a>.</p>
+                            </div>
+                            
+                            <div id="tab-2-3" class="tab-content">
+                                <p>Sfat: Aprofundare pe ecuații funcționale.</p>
+                            </div>
+                        </div>
                     </td>
                 </tr>
 
                 <tr>
-                    <td colspan="4"><strong>Sursa: Ministerul Educației</strong></td>
+                    <td colspan="4" style="text-align: center;"><strong>Sursa: Ministerul Educației</strong></td>
                 </tr>
             </table>
         </section>
     </article>
+
+    <div id="pomodoro-widget" class="pomodoro-container">
+    <div id="pomodoro-toggle">⏱️ Asistent Studiu</div>
+    
+    <div id="pomodoro-panel">
+        <h3 style="margin-top:0; color:#1e3c72;">Sesiune Focus</h3>
+        <p style="font-size: 12px; color: #666;">Rezolvă subiectul fără distrageri!</p>
+        
+        <div id="pomodoro-time">25:00</div>
+        
+        <div class="pomodoro-controls">
+            <button id="pom-start">Start</button>
+            <button id="pom-pause">Pauză</button>
+            <button id="pom-reset">Reset</button>
+        </div>
+    </div>
+</div>
+</main>
 <section class="table-section">
     <h2>Participanți Notabili și Rezultate</h2>
     
@@ -195,6 +253,61 @@
 <footer>
     <p>&copy; 2026 OlimpiadaHub</p>
 </footer>
+<script>
+$(document).ready(function() {
+    // preluam din local storage
+    var subiecteSalvate = JSON.parse(localStorage.getItem('subiecte_noi')) || [];
 
+    // iteram prin fiecare subiect 
+    subiecteSalvate.forEach(function(subiect) {
+        var unqId = subiect.id;
+        
+        var newRow = `
+        <tr>
+            <td>${subiect.an}</td>
+            <td>${subiect.etapa}</td>
+            <td>${subiect.clasa}</td>
+            <td style="padding: 10px; text-align: left;">
+                <div class="tabs-container">
+                    <ul class="tabs-nav">
+                        <li class="tab-link active" data-tab="tab-${unqId}-1">Subiecte</li>
+                        <li class="tab-link" data-tab="tab-${unqId}-2">Barem</li>
+                        <li class="tab-link" data-tab="tab-${unqId}-3">Recomandări</li>
+                    </ul>
+                    
+                    <div id="tab-${unqId}-1" class="tab-content active">
+                        <p style="text-align:center;"><strong>${subiect.titlu}</strong></p>
+                        <p style="text-align:center; font-size: 14px;">(Fișierele subiectului nu au fost încă încărcate)</p>
+                    </div>
+                    
+                    <div id="tab-${unqId}-2" class="tab-content">
+                        <p>Barem indisponibil pentru moment.</p>
+                    </div>
+                    
+                    <div id="tab-${unqId}-3" class="tab-content">
+                        <p>Sfat / Descriere Admin: ${subiect.descriere ? subiect.descriere : 'Fără recomandări.'}</p>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        `;
+
+        // inseram subiectul
+        $('.tabel-subiecte tr:last').before(newRow);
+    });
+
+    //daca cumva jquery nu recunoaste tab urile nou adaugate
+    $(document).on('click', '.tab-link', function() {
+        var tab_id = $(this).attr('data-tab');
+        var $container = $(this).closest('.tabs-container');
+
+        $container.find('.tab-link').removeClass('active');
+        $container.find('.tab-content').removeClass('active');
+
+        $(this).addClass('active');
+        $('#' + tab_id).addClass('active');
+    });
+});
+</script>
 </body>
 </html>
